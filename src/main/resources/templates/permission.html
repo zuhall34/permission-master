@@ -1,0 +1,45 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>İzin Yönetim Sistemi</title>
+  <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}" type="text/css" />
+  <link rel="stylesheet" th:href="@{/assets/fonts/ionicons.min.css}" type="text/css">
+  <link rel="stylesheet" th:href="@{/assets/css/Login-Form-Clean.css}" type="text/css">
+  <link rel="stylesheet" th:href="@{/assets/css/styles.css}" type="text/css">
+</head>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-md">
+  <div class="container-fluid"><a class="navbar-brand" href="#">İzin Yönetim Sistemi</a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div id="navcol-1" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"></li>
+        <li class="nav-item"></li>
+        <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" href="#"  th:text="${person.role.displayText}">Rol Name</a></li>
+        <li class="nav-item" sec:authorize="hasRole('ROLE_EMPLOYEE')"><a class="nav-link" th:href="@{/permission}">İzin Gir</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" th:href="@{/logout}">Çıkış</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title" th:text="${person.name}+' '+${person.surName}">Çalışan Adı</h4>
+    </div>
+  </div>
+</div>
+<div class="border rounded-0 d-table">
+  <form th:object="${permission}" th:action="@{'/permission'}" method="post">
+    <label class="form-label">İzin Nedeni :</label>
+    <textarea class="form-control" th:field="*{permissionReason}"></textarea>
+    <label class="form-label">Gün Sayısı :</label>
+    <input class="form-control" type="text" th:field="*{day}"/>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+  </form>
+</div>
+</body>
+
+</html>

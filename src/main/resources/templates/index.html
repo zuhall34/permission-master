@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>İzin Yönetim Sistemi</title>
+<!--    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">-->
+<!--    <link rel="stylesheet" href="/assets/css/Login-Form-Clean.css">-->
+<!--    <link rel="stylesheet" href="/assets/css/styles.css">-->
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}" type="text/css" />
+    <link rel="stylesheet" th:href="@{/assets/fonts/ionicons.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/assets/css/Login-Form-Clean.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/assets/css/styles.css}" type="text/css">
+</head>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-md">
+    <div class="container-fluid"><a class="navbar-brand" href="#">İzin Yönetim Sistemi</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"></li>
+                <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col">
+        <div><img src="assets/img/4957136.jpg" style="width: 400px;"></div>
+    </div>
+    <div class="col">
+        <div>
+            <section class="login-clean">
+                <form method="post" th:action="@{/login}">
+                    <h2 class="visually-hidden">Login Form</h2>
+                    <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+                    <div class="mb-3"><input class="form-control" type="username" name="username" placeholder="Kullanıcı Adı"></div>
+                    <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Şifre"></div>
+                    <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Giriş</button></div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
